@@ -7,11 +7,11 @@ import CustomButton from './comp/CustomButton';
 export default function App() {
   return (
     <View style={styles.container}>
-        <CustomButton>default</CustomButton>
-        <CustomButton>GitHub</CustomButton>
-        <CustomButton>FaceBook</CustomButton>
-        <CustomButton>Twitter</CustomButton>
-        <CustomButton>Instagram</CustomButton>
+        <CustomButton style = {styles.button_default}>default</CustomButton>
+        <CustomButton style = {styles.button_GitHub}>GitHub</CustomButton>
+        <CustomButton style = {styles.button_FaceBook}>FaceBook</CustomButton>
+        <CustomButton style = {styles.button_Twitter}>Twitter</CustomButton>
+        <CustomButton style = {styles.button_Instagram}>Instagram</CustomButton>
     </View>
   );
 }
@@ -30,20 +30,26 @@ const styles = StyleSheet.create({
   
   
   button_GitHub: {
-  
-  
+    color: '#F2F2F2',
+    borderColor: 'seagreen',
+    backgroundColor: '#0D1000',
+    textAlign: 'left',
   },
   button_FaceBook: {
-    
+    color: 'white',
+    borderColor: 'silver',
+    backgroundColor: 'darkblue',
   
   },
   button_Twitter: {
-  
-  
+    color: 'teal',
+    borderColor: 'teal',
+    backgroundColor: 'lightgray',
+
   },
   button_Instagram: {
-  
-  
+    fontSize: 18,
+    fontWeight: '900',
   }, 
 
 });

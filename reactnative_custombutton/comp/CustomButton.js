@@ -23,7 +23,7 @@ const styles = StyleSheet.compose({
         width: 200,
         margin: 8,
         padding: 4,
-        justifyContent: 'center',
+        // justifyContent: 'center',
     },
     customButton: {
         borderWidth: 4,
@@ -36,16 +36,16 @@ const styles = StyleSheet.compose({
         borderRadius: 10,
         
         display: 'flex',
-        justifyContent: 'center',
+        // justifyContent: 'center',
 
     }, 
     customButtonText: {
-        borderWidth: 1,
-        borderColor: 'orange',
+        // borderWidth: 1,
+        // borderColor: 'orange',
 
         color: 'snow',
         // backgroundColor: 'yellow',
-        fontSize: 28,
+        fontSize: 24,
         textAlign: 'center',
         
     
