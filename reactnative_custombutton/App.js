@@ -1,5 +1,5 @@
 import { StatusBar } from 'expo-status-bar';
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 
 import CustomButton from './comp/CustomButton';
@@ -12,34 +12,37 @@ import AppLoading from 'expo-app-loading';   // yarn add expo-app-loading
 import { useFonts } from 'expo-font'; // yarn add expo-font
 
 
-const fetchFonts = async () => {
+// const fetchFonts = async () => {
     
-    await Font.loadAsync(
-    // return Font.loadAsync({   // returns a Promise
-        addedFonts
-    );
+//     await Font.loadAsync(
+//     // return Font.loadAsync({   // returns a Promise
+//         addedFonts
+//     );
 
-}
+// }
 
 const default_handler = () => {
-    alert("default button selected");
-
+    // alert("default button selected");
+    return <CustomModal />
 }
 
 export default function App() {
 
     const [dataLoaded, setDataLoaded] = useState(false);
-    // let [fetchFonts] = useFonts( addedFonts );
+    let [fetchFonts] = useFonts( addedFonts );
 
-    if (!dataLoaded) {
+    if (!fetchFonts){
+    // if (!dataLoaded) {  // when using fetchFonts & Font.loadAsync()
         return (
             <AppLoading 
-                startAsync = {fetchFonts} 
-                onFinish = {() => setDataLoaded(true)}
-                onError = {() => console.log(err)}
+            // hide props if useFont hook implemented
+                // startAsync = {fetchFonts} 
+                // onFinish = {() => setDataLoaded(true)}
+                // onError = {() => console.log(err)}
             />
         
         )
+
         
     }
 
@@ -47,14 +50,14 @@ export default function App() {
   return (
     <View style = {styles.mainContainer}>
         <View style={styles.container}>
-            <CustomButton style = {styles.button_default} onPress = {default_handler}>default</CustomButton>
+            <CustomButton style = {styles.button_default} onPress = {() => default_handler}>default</CustomButton>
             <CustomButton style = {styles.button_GitHub}>GitHub</CustomButton>
             <CustomButton style = {styles.button_FaceBook}>FaceBook</CustomButton>
             <CustomButton style = {styles.button_Twitter}>Twitter</CustomButton>
             <CustomButton style = {styles.button_Instagram}>Instagram</CustomButton>
         </View>
         <View style = {styles.container}>
-            <CustomModal />
+            
         
         </View>
     </View>
