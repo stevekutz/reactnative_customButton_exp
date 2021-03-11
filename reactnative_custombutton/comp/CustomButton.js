@@ -34,9 +34,6 @@ const styles = StyleSheet.compose({
         padding: 4,
         marginHorizontal: 3,
         borderRadius: 10,
-        
-        display: 'flex',
-        // justifyContent: 'center',
 
     }, 
     customButtonText: {
@@ -47,8 +44,7 @@ const styles = StyleSheet.compose({
         // backgroundColor: 'yellow',
         fontSize: 24,
         textAlign: 'center',
-        fontFamily: 'atures700',
-    
+        // fontFamily: 'Raleway-Thin'
     }
 
 

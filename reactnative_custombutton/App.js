@@ -3,32 +3,14 @@ import React, {useState} from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 
 import CustomButton from './comp/CustomButton';
+import CustomModal from './comp/CustomModal';
+
 import * as Font from 'expo-font';
-// import addedFonts from './assets/fonts/addedFonts';
+import addedFonts from './assets/fonts/addedFonts';
 import AppLoading from 'expo-app-loading';   // yarn add expo-app-loading
 
 import { useFonts } from 'expo-font'; // yarn add expo-font
 
-const addedFonts = {
-    'atures100' : require('./assets/fonts/Atures-100_PERSONAL_USE.ttf'),
-    'atures300' : require('./assets/fonts/Atures-300_PERSONAL_USE.ttf'),
-    'atures500' : require('./assets/fonts/Atures-500_PERSONAL_USE.ttf'),
-    'atures700' : require('./assets/fonts/Atures-700_PERSONAL_USE.ttf'),
-    'atures900' : require('./assets/fonts/Atures-900_PERSONAL_USE.ttf'),  // bolder
-    'open-sans-bold' : require('./assets/fonts/OpenSans-Bold.ttf'),
-    'open-sans' : require('./assets/fonts/OpenSans-Regular.ttf'),
-    'nasalization-rg' : require('./assets/fonts/nasalization-rg.ttf'),
-    'Raleway-Bold' : require('./assets/fonts/Raleway-Bold.ttf'),
-    'Raleway-ExtraBold' : require('./assets/fonts/Raleway-ExtraBold.ttf'),
-    'Raleway-ExtraLight' : require('./assets/fonts/Raleway-ExtraLight.ttf'),
-    'Raleway-Heavy' : require('./assets/fonts/Raleway-Heavy.ttf'),
-    'Raleway-Light' : require('./assets/fonts/Raleway-Light.ttf'),
-    'Raleway-Medium' : require('./assets/fonts/Raleway-Medium.ttf'),
-    'Raleway-Regular' : require('./assets/fonts/Raleway-Regular.ttf'),
-    'Raleway-SemiBold' : require('./assets/fonts/Raleway-SemiBold.ttf'),
-    'Raleway-Thin' : require('./assets/fonts/Raleway-Thin.ttf'),
-
-}
 
 const fetchFonts = async () => {
     
@@ -39,6 +21,10 @@ const fetchFonts = async () => {
 
 }
 
+const default_handler = () => {
+    alert("default button selected");
+
+}
 
 export default function App() {
 
@@ -50,7 +36,7 @@ export default function App() {
             <AppLoading 
                 startAsync = {fetchFonts} 
                 onFinish = {() => setDataLoaded(true)}
-                onError = {() => console.log('ERROR loading fonts')}
+                onError = {() => console.log(err)}
             />
         
         )
@@ -59,36 +45,59 @@ export default function App() {
 
 
   return (
-    <View style={styles.container}>
-        <CustomButton style = {styles.button_default}>default</CustomButton>
-        <CustomButton style = {styles.button_GitHub}>GitHub</CustomButton>
-        <CustomButton style = {styles.button_FaceBook}>FaceBook</CustomButton>
-        <CustomButton style = {styles.button_Twitter}>Twitter</CustomButton>
-        <CustomButton style = {styles.button_Instagram}>Instagram</CustomButton>
+    <View style = {styles.mainContainer}>
+        <View style={styles.container}>
+            <CustomButton style = {styles.button_default} onPress = {default_handler}>default</CustomButton>
+            <CustomButton style = {styles.button_GitHub}>GitHub</CustomButton>
+            <CustomButton style = {styles.button_FaceBook}>FaceBook</CustomButton>
+            <CustomButton style = {styles.button_Twitter}>Twitter</CustomButton>
+            <CustomButton style = {styles.button_Instagram}>Instagram</CustomButton>
+        </View>
+        <View style = {styles.container}>
+            <CustomModal />
+        
+        </View>
     </View>
+    
   );
 }
 
 const styles = StyleSheet.create({
+  mainContainer: {
+    borderWidth: 4,
+    borderColor: 'orange',
+    
+    flex: 1,
+
+    margin: 40,
+    // backgroundColor: '#fff',
+    // alignItems: 'center',
+    // justifyContent: 'center',
+  },
   container: {
+    borderWidth: 1,
+    borderColor: 'pink',
+
+
     flex: 1,
     backgroundColor: '#fff',
     alignItems: 'center',
     justifyContent: 'center',
-  },
+
+    margin: 5,
+
+  },  
   button_default: {
   
   
   },
-  
-  
   button_GitHub: {
     color: '#F2F2F2',
     borderColor: 'seagreen',
     backgroundColor: '#0D1000',
     textAlign: 'left',
-    // fontFamily: 'Raleway-Bold',
-    // fontFamily: 'atures700'
+    fontFamily: 'atures100',
+    fontWeight: '900', // does not work with imported font
   },
   button_FaceBook: {
     color: 'white',
@@ -104,7 +113,7 @@ const styles = StyleSheet.create({
   },
   button_Instagram: {
     fontSize: 18,
-    fontWeight: '900',
+    fontWeight: '900', // works when a System Font used, not when External font used in CustomButton 
   }, 
 
 });
