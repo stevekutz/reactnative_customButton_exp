@@ -88,7 +88,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#0D1000',
     textAlign: 'left',
     // fontFamily: 'Raleway-Bold',
-    fontFamily: 'atures700'
+    // fontFamily: 'atures700'
   },
   button_FaceBook: {
     color: 'white',
