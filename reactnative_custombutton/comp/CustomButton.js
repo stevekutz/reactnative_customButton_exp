@@ -47,7 +47,7 @@ const styles = StyleSheet.compose({
         // backgroundColor: 'yellow',
         fontSize: 24,
         textAlign: 'center',
-        
+        // fontFamily: 'atures700',
     
     }
 
