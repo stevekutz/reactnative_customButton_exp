@@ -1,5 +1,5 @@
 import React from 'react';
-import {View, Text, TouchableOpacity, StyleSheet, YellowBox} from 'react-native';
+import {View, Text, TouchableOpacity, StyleSheet, Image} from 'react-native';
 
 const CustomButton = (props) => {
     
@@ -7,9 +7,15 @@ const CustomButton = (props) => {
         <View style = {styles.customButtonContainer}>
             <TouchableOpacity activeOpacity = {0.75} onPress = {props.onPress}>
             <View style = {{...styles.customButton, ...props.style}}>
-                <Text style = {{...styles.customButtonText, ...props.style}}>
-                    {props.children}
-                </Text>
+                <View style = {styles.imageTextContainer}>
+                    <Image 
+                        source = {props.source}
+                        style = {{...styles.buttonImage, ...props.style}}/>
+                    <Text style = {{...styles.customButtonText, ...props.style}}>
+                        {props.children}
+                    </Text>            
+                </View>
+                
             </View>
             </TouchableOpacity>   
         </View>
@@ -36,24 +42,39 @@ const styles = StyleSheet.compose({
         padding: 4,
         marginHorizontal: 3,
         borderRadius: 10,
-        
+        alignItems: 'center',
+        justifyContent: 'center',
+        // alignItems: 'center',
 
     }, 
     customButtonText: {
-        // borderWidth: 1,
-        // borderColor: 'orange',
+        borderWidth: 1,
+        borderColor: 'orange',
 
         color: 'snow',
         // backgroundColor: 'yellow',
-        fontSize: 24,
+        fontSize: 18,
         textAlign: 'center',
+            
+        
+        margin: 0,
         // fontFamily: 'Raleway-Thin'
 
+
     },
-    propsChildrenView: {
-        paddingHorizontal: 6,
-    
-    }
+    imageTextContainer: {
+        borderWidth: 1,
+        borderColor: 'green',
+
+        flexDirection: 'row',
+        justifyContent: 'center',
+        width: '100%',
+    },
+
+    buttonImage: {
+        height: 18,
+        width: 18,
+    },
 
 
 
@@ -61,3 +82,9 @@ const styles = StyleSheet.compose({
 });
 
 export default CustomButton;
+
+
+// <View style = {styles.buttonImage}>
+//     <Image style = {{...styles.buttonImage, ...props.style}}/>
+
+// </View>

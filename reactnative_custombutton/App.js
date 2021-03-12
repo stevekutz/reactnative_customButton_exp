@@ -1,6 +1,6 @@
 import { StatusBar } from 'expo-status-bar';
 import React, {useState, useEffect} from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Text, View, Image } from 'react-native';
 
 import CustomButton from './comp/CustomButton';
 import CustomModal from './comp/CustomModal';
@@ -12,6 +12,8 @@ import AppLoading from 'expo-app-loading';   // yarn add expo-app-loading
 import { useFonts } from 'expo-font'; // yarn add expo-font
 
 import {Entypo, Ionicons, AntDesign, FontAwesome} from '@expo/vector-icons'; 
+
+import {insta} from './assets/images/instagram2.jpg';
 
 // const fetchFonts = async () => {
     
@@ -67,12 +69,17 @@ export default function App() {
             <CustomButton 
                 style = {styles.button_Twitter}
                 onPress = {() => {}}
-            > <Entypo name = 'twitter' size = {22} color = 'green'/> Twitter</CustomButton>
-            <CustomButton style = {styles.button_Instagram}
-            >Instagram</CustomButton>
+            ><Entypo name = 'twitter' size = {22} color = 'green'/> Twitter</CustomButton>
+            <CustomButton 
+                style = {styles.button_Instagram}
+                source = {require('./assets/images/instagram2.jpg')}
+            > Instagram</CustomButton>
         </View>
         <View style = {styles.container}>
-            
+            <Image 
+                style = {styles.imageIcon}
+                source = {require('./assets/images/instagram3.jpg')}   
+            />
         
         </View>
     </View>
@@ -121,18 +128,33 @@ const styles = StyleSheet.create({
   button_FaceBook: {
     color: 'white',
     borderColor: 'silver',
+    borderWidth: 3,
     backgroundColor: 'darkblue',
   
   },
   button_Twitter: {
     color: 'teal',
     borderColor: 'teal',
+    borderWidth: 3,
     backgroundColor: 'lightgray',
 
   },
   button_Instagram: {
-    fontSize: 18,
-    fontWeight: '500', // works when a System Font used, not when External font used in CustomButton 
+    // fontSize: 20,  // causes failed prop type WARNING
+    // fontWeight: '500', // works when a System Font used, not when External font used in CustomButton 
+    backgroundColor: 'white',
+    color: 'orange',
+    // justifyContent: 'center',
+    // alignItems: 'center',
+    lineHeight: 18,
+
   }, 
+
+  imageIcon: {
+    height: 16,
+    width: 16,
+    // paddingVertical: 4,
+    // resizeMode: "cover",
+  }
 
 });
