@@ -7,7 +7,9 @@ const CustomButton = (props) => {
         <View style = {styles.customButtonContainer}>
             <TouchableOpacity activeOpacity = {0.75} onPress = {props.onPress}>
             <View style = {{...styles.customButton, ...props.style}}>
-                <Text style = {{...styles.customButtonText, ...props.style}}> {props.children}</Text>
+                <Text style = {{...styles.customButtonText, ...props.style}}>
+                    {props.children}
+                </Text>
             </View>
             </TouchableOpacity>   
         </View>
@@ -34,6 +36,7 @@ const styles = StyleSheet.compose({
         padding: 4,
         marginHorizontal: 3,
         borderRadius: 10,
+        
 
     }, 
     customButtonText: {
@@ -45,6 +48,11 @@ const styles = StyleSheet.compose({
         fontSize: 24,
         textAlign: 'center',
         // fontFamily: 'Raleway-Thin'
+
+    },
+    propsChildrenView: {
+        paddingHorizontal: 6,
+    
     }
 
 

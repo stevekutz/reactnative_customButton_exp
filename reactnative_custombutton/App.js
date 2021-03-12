@@ -11,6 +11,7 @@ import AppLoading from 'expo-app-loading';   // yarn add expo-app-loading
 
 import { useFonts } from 'expo-font'; // yarn add expo-font
 
+import {Entypo, Ionicons, AntDesign, FontAwesome} from '@expo/vector-icons'; 
 
 // const fetchFonts = async () => {
     
@@ -50,11 +51,25 @@ export default function App() {
   return (
     <View style = {styles.mainContainer}>
         <View style={styles.container}>
-            <CustomButton style = {styles.button_default} onPress = {() => default_handler}>default</CustomButton>
-            <CustomButton style = {styles.button_GitHub}>GitHub</CustomButton>
-            <CustomButton style = {styles.button_FaceBook}>FaceBook</CustomButton>
-            <CustomButton style = {styles.button_Twitter}>Twitter</CustomButton>
-            <CustomButton style = {styles.button_Instagram}>Instagram</CustomButton>
+            <CustomButton 
+                style = {styles.button_default} 
+                onPress = {() => default_handler}
+            ><Ionicons name = 'logo-react' size = {20} color = 'white' />
+                      default</CustomButton>
+            <CustomButton 
+                style = {styles.button_GitHub}
+                onPress = {() =>{}}    
+            ><AntDesign name = 'github' size = {18} color = 'grey'/> GitHub</CustomButton>
+            <CustomButton 
+                style = {styles.button_FaceBook}
+                onPress = {() =>{}}    
+            ><FontAwesome name = 'facebook-square' size = {24} color = 'white' /> FaceBook</CustomButton>
+            <CustomButton 
+                style = {styles.button_Twitter}
+                onPress = {() => {}}
+            > <Entypo name = 'twitter' size = {22} color = 'green'/> Twitter</CustomButton>
+            <CustomButton style = {styles.button_Instagram}
+            >Instagram</CustomButton>
         </View>
         <View style = {styles.container}>
             
@@ -91,7 +106,7 @@ const styles = StyleSheet.create({
 
   },  
   button_default: {
-  
+    
   
   },
   button_GitHub: {
@@ -99,8 +114,9 @@ const styles = StyleSheet.create({
     borderColor: 'seagreen',
     backgroundColor: '#0D1000',
     textAlign: 'left',
-    fontFamily: 'atures100',
-    fontWeight: '900', // does not work with imported font
+    fontFamily: 'atures500',
+    fontWeight: '900', // NO EFFECTdoes not work with imported font
+    fontSize: 18,
   },
   button_FaceBook: {
     color: 'white',
@@ -116,7 +132,7 @@ const styles = StyleSheet.create({
   },
   button_Instagram: {
     fontSize: 18,
-    fontWeight: '900', // works when a System Font used, not when External font used in CustomButton 
+    fontWeight: '500', // works when a System Font used, not when External font used in CustomButton 
   }, 
 
 });
