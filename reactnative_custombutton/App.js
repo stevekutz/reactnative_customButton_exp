@@ -25,8 +25,8 @@ import {insta} from './assets/images/instagram2.jpg';
 // }
 
 const default_handler = () => {
-    // alert("default button selected");
-    return <CustomModal />
+    alert("default button selected");
+    // return <CustomModal />
 }
 
 export default function App() {
@@ -73,6 +73,7 @@ export default function App() {
             <CustomButton 
                 style = {styles.button_Instagram}
                 source = {require('./assets/images/instagram2.jpg')}
+
             > Instagram</CustomButton>
         </View>
         <View style = {styles.container}>

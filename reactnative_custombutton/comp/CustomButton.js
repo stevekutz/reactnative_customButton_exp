@@ -8,9 +8,15 @@ const CustomButton = (props) => {
             <TouchableOpacity activeOpacity = {0.75} onPress = {props.onPress}>
             <View style = {{...styles.customButton, ...props.style}}>
                 <View style = {styles.imageTextContainer}>
-                    <Image 
-                        source = {props.source}
-                        style = {{...styles.buttonImage, ...props.style}}/>
+                    {props.source 
+                        ? 
+                            <Image 
+                                source = {props.source}
+                                style = {{...styles.buttonImage, ...props.style}}/>
+                        :
+                        null        
+                    }
+                    
                     <Text style = {{...styles.customButtonText, ...props.style}}>
                         {props.children}
                     </Text>            
